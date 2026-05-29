@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white font-poppins;
+    background-color: #050505;
+    background-image: radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 1) 0%, rgba(5, 5, 5, 1) 100%);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron tracking-wider;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.5);
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden font-orbitron font-semibold text-sm tracking-widest uppercase px-8 py-4 rounded-full bg-gradient-to-r from-brand-orange to-brand-gold text-white hover:scale-105 transition-all duration-300;
+    box-shadow: 0 0 15px rgba(255, 107, 0, 0.5);
+  }
+  
+  .btn-secondary {
+    @apply relative overflow-hidden font-orbitron font-semibold text-sm tracking-widest uppercase px-8 py-4 rounded-full border border-brand-gold/50 text-brand-gold hover:bg-brand-gold/10 hover:border-brand-gold transition-all duration-300;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b00;
+}
