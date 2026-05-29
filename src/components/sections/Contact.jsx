@@ -1,105 +1,101 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Mail, MapPin, Globe, Briefcase, Send } from 'lucide-react';
+import React from "react";
+import { Send } from "lucide-react";
 
 const Contact = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-black/80">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold font-orbitron mb-4 text-white">
-            Initiate <span className="text-brand-gold">Contact</span>
-          </h2> https://formspree.io/f/mykvorgk
-          <p className="text-gray-400 font-poppins">Ready to transform your business? Let's build the future together.</p>
-        </motion.div>
+    <section
+      id="contact"
+      className="min-h-screen bg-black flex items-center justify-center px-6 py-20"
+    >
+      <div className="w-full max-w-5xl relative">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+        {/* Main Card */}
+        <div className="relative border border-white/10 rounded-[35px] bg-[#050505] p-10 md:p-14 overflow-hidden">
+
+          {/* Orange Glow Circle */}
+          <div className="absolute left-[-18px] top-[60px] w-[70px] h-[70px] border border-orange-500/40 rounded-full"></div>
+
+          <div className="absolute left-[22px] top-[82px] w-5 h-5 bg-orange-500 rounded-full shadow-[0_0_30px_#ff7b00]"></div>
+
+          {/* Heading */}
+          <div className="mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
+              Contact Us
+            </h2>
+
+            <p className="text-gray-400 text-lg">
+              Let’s build something powerful together.
+            </p>
+          </div>
+
+          {/* Form */}
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
             className="space-y-8"
           >
-            <div className="glass-card p-6 flex items-center gap-6 group hover:border-brand-orange/50 transition-colors">
-              <div className="w-14 h-14 bg-brand-orange/10 rounded-full flex items-center justify-center group-hover:bg-brand-orange/20 transition-colors">
-                <Mail className="text-brand-orange w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="text-white font-orbitron font-semibold mb-1">Email Us</h4>
-                <p className="text-gray-400 font-poppins">contact@seyyonic.ai</p>
-              </div>
+
+            {/* Web3Forms Access Key */}
+            <input
+              type="hidden"
+              name="access_key"
+              value="5a9bb4b2-6a7f-4fe8-be1b-2956f8b511c4"
+            />
+
+            {/* Name */}
+            <div>
+              <label className="block text-gray-400 tracking-[3px] text-sm font-semibold mb-3">
+                NAME
+              </label>
+
+              <input
+                type="text"
+                name="name"
+                placeholder="John Doe"
+                required
+                className="w-full bg-[#080808] border border-white/10 rounded-2xl px-6 py-5 text-white text-lg outline-none focus:border-orange-500 focus:shadow-[0_0_20px_rgba(255,123,0,0.25)] transition-all duration-300"
+              />
             </div>
 
-            <div className="glass-card p-6 flex items-center gap-6 group hover:border-brand-gold/50 transition-colors">
-              <div className="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors">
-                <MapPin className="text-brand-gold w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="text-white font-orbitron font-semibold mb-1">Visit Us</h4>
-                <p className="text-gray-400 font-poppins">Chennai, Sholinganallur</p>
-              </div>
+            {/* Email */}
+            <div>
+              <label className="block text-gray-400 tracking-[3px] text-sm font-semibold mb-3">
+                EMAIL
+              </label>
+
+              <input
+                type="email"
+                name="email"
+                placeholder="john@example.com"
+                required
+                className="w-full bg-[#080808] border border-white/10 rounded-2xl px-6 py-5 text-white text-lg outline-none focus:border-orange-500 focus:shadow-[0_0_20px_rgba(255,123,0,0.25)] transition-all duration-300"
+              />
             </div>
 
-            <div className="flex gap-4 pt-4">
-              <a href="#" className="w-12 h-12 glass-card flex items-center justify-center text-gray-400 hover:text-brand-orange hover:border-brand-orange/50 transition-all">
-                <Briefcase className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-12 h-12 glass-card flex items-center justify-center text-gray-400 hover:text-brand-gold hover:border-brand-gold/50 transition-all">
-                <Globe className="w-5 h-5" />
-              </a>
-            </div>
-          </motion.div>
+            {/* Message */}
+            <div>
+              <label className="block text-gray-400 tracking-[3px] text-sm font-semibold mb-3">
+                MESSAGE
+              </label>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <form className="glass-card p-8 space-y-6">
-              <div>
-                <label className="block text-gray-400 font-orbitron text-sm mb-2 uppercase tracking-wider">Name</label>
-                <input
-                  type="text"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-poppins focus:outline-none focus:border-brand-orange/50 transition-colors"
-                  placeholder="John Doe"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-400 font-orbitron text-sm mb-2 uppercase tracking-wider">Email</label>
-                <input
-                  type="email"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-poppins focus:outline-none focus:border-brand-gold/50 transition-colors"
-                  placeholder="john@example.com"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-400 font-orbitron text-sm mb-2 uppercase tracking-wider">Message</label>
-                <textarea
-                  rows="4"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-poppins focus:outline-none focus:border-brand-orange/50 transition-colors resize-none"
-                  placeholder="How can we help you?"
-                ></textarea>
-              </div>
-              <button type="button" className="btn-primary w-full flex items-center justify-center gap-2">
-                <span>Send Message</span>
-                <Send className="w-4 h-4" />
-              </button>
-            </form>
-          </motion.div>
+              <textarea
+                name="message"
+                placeholder="How can we help you?"
+                rows="6"
+                required
+                className="w-full bg-[#080808] border border-white/10 rounded-2xl px-6 py-5 text-white text-lg outline-none resize-none focus:border-orange-500 focus:shadow-[0_0_20px_rgba(255,123,0,0.25)] transition-all duration-300"
+              ></textarea>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full py-5 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white text-xl font-bold tracking-wide flex items-center justify-center gap-3 shadow-[0_0_35px_rgba(255,123,0,0.35)] hover:scale-[1.02] transition-all duration-300"
+            >
+              SEND MESSAGE
+              <Send size={22} />
+            </button>
+          </form>
         </div>
       </div>
     </section>
